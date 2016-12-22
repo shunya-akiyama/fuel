@@ -6,8 +6,6 @@
 		<tr>
 			<th>Title</th>
 			<th>Body</th>
-			<th>User id</th>
-			<th>Category</th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -16,8 +14,6 @@
 
 			<td><?php echo $item->title; ?></td>
 			<td><?php echo $item->body; ?></td>
-			<td><?php echo $item->user_id; ?></td>
-			<td><?php echo $item->category; ?></td>
 			<td>
 				<div class="btn-toolbar">
 					<div class="btn-group">

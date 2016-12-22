@@ -24,7 +24,7 @@ class Controller_Post extends Controller_Template
 		$this->template->content = View::forge('post/view', $data);
 
 	}
-/*
+
 	public function action_create()
 	{
 		if (Input::method() == 'POST')
@@ -36,8 +36,6 @@ class Controller_Post extends Controller_Template
 				$post = Model_Post::forge(array(
 					'title' => Input::post('title'),
 					'body' => Input::post('body'),
-					'user_id' => Input::post('user_id'),
-					'category' => Input::post('category'),
 				));
 
 				if ($post and $post->save())
@@ -79,8 +77,6 @@ class Controller_Post extends Controller_Template
 		{
 			$post->title = Input::post('title');
 			$post->body = Input::post('body');
-			$post->user_id = Input::post('user_id');
-			$post->category = Input::post('category');
 
 			if ($post->save())
 			{
@@ -101,8 +97,6 @@ class Controller_Post extends Controller_Template
 			{
 				$post->title = $val->validated('title');
 				$post->body = $val->validated('body');
-				$post->user_id = $val->validated('user_id');
-				$post->category = $val->validated('category');
 
 				Session::set_flash('error', $val->error());
 			}
@@ -134,5 +128,5 @@ class Controller_Post extends Controller_Template
 		Response::redirect('post');
 
 	}
-*/
+
 }

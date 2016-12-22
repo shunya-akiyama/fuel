@@ -7,8 +7,6 @@ class Model_Post extends Model
 		'id',
 		'title',
 		'body',
-		'user_id',
-		'category',
 		'created_at',
 		'updated_at',
 	);
@@ -29,8 +27,6 @@ class Model_Post extends Model
 		$val = Validation::forge($factory);
 		$val->add_field('title', 'Title', 'required|max_length[100]');
 		$val->add_field('body', 'Body', 'required');
-		$val->add_field('user_id', 'User Id', 'required|valid_string[numeric]');
-		$val->add_field('category', 'Category', 'required|valid_string[numeric]');
 
 		return $val;
 	}
