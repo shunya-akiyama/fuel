@@ -24,7 +24,7 @@ class Controller_Post extends Controller_Template
 		$this->template->content = View::forge('post/view', $data);
 
 	}
-
+/*
 	public function action_create()
 	{
 		if (Input::method() == 'POST')
@@ -134,5 +134,5 @@ class Controller_Post extends Controller_Template
 		Response::redirect('post');
 
 	}
-
+*/
 }
