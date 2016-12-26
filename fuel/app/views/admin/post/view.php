@@ -5,7 +5,9 @@
 <p>
 	<strong>Body:</strong>
 	<?php echo $post->body; ?></p>
-<?php echo Asset::img($image->path); ?>
+<?php foreach($image as $path): ?>
+<?php echo Asset::img($path->path); ?>
+<?php endforeach; ?>
 <br>
 <?php echo Html::anchor('admin/post/edit/'.$post->id, 'Edit'); ?> |
 <?php echo Html::anchor('admin/post', 'Back'); ?>

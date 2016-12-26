@@ -10,7 +10,9 @@ class Controller_Admin_Post extends Controller_Admin
 
 	public function action_view($id = null){
 		$data['post'] = Model_Post::find($id);
-        $data['image'] = Model_Image::find($id);
+        $data['image'] = Model_Image::find('all',array('where'=>array(array('post_id',$id))));
+        foreach ($data['image'] as $value) {
+        }
 		$this->template->title = "Post";
 		$this->template->content = View::forge('admin/post/view', $data);
     }
@@ -29,14 +31,29 @@ class Controller_Admin_Post extends Controller_Admin
                 Upload::process($config);
 				if ($post and $post->save()){
                     if($result = Upload::get_files()){
+                        foreach ($result as $file) {
+                            Upload::save();
+                            $img = Model_Image::forge();
+                            $img->fiename = $file['name'];
+                            $img->mimetype = $file['mimetype'];
+                            $img->path = 'post/'.$img->fiename;
+                            $img->post_id = $post['id'];
+                            $img->save();
+var_dump($img);
+echo '<br><br>';
+                        }
+/*
+                        exit;
                         Upload::save();
                         $img = Model_Image::forge();
                         $img->fiename = $result[0]['name'];
                         $img->mimetype = $result[0]['mimetype'];
                         $img->path = 'post/'.$img->fiename;
                         $img->post_id = $post['id'];
-                        var_dump($img);
+//                        var_dump($img);
+exit;
                         $img->save();
+*/
                     }
                 	Session::set_flash('success', e('Added post #'.$post->id.'.'));
 					Response::redirect('admin/post');

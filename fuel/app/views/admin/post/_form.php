@@ -1,4 +1,4 @@
-<?php echo Form::open(array("class"=>"form-horizontal",'enctype'=>'multipart/form-data')); ?>
+<?php echo Form::open(array("class"=>"form-horizontal",'enctype'=>'multipart/form-data','multiple'=>'multiple')); ?>
 
 	<fieldset>
 		<div class="form-group">
@@ -16,7 +16,9 @@
         <div class="form-group">
 			<?php echo Form::label('UploadImage', 'upload', array('class'=>'control-label')); ?>
 
-				<?php echo Form::file('upload'); ?>
+				<?php echo Form::file('1'); ?>
+                <?php echo Form::file('2'); ?>
+                <?php echo Form::file('3'); ?>
 
 		</div>
 		<div class="form-group">
