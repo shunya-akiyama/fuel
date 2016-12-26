@@ -1,4 +1,4 @@
-<?php echo Form::open(array("class"=>"form-horizontal")); ?>
+<?php echo Form::open(array("class"=>"form-horizontal",'enctype'=>'multipart/form-data')); ?>
 
 	<fieldset>
 		<div class="form-group">
@@ -11,6 +11,12 @@
 			<?php echo Form::label('Body', 'body', array('class'=>'control-label')); ?>
 
 				<?php echo Form::textarea('body', Input::post('body', isset($post) ? $post->body : ''), array('class' => 'col-md-8 form-control', 'rows' => 8, 'placeholder'=>'Body')); ?>
+
+		</div>
+        <div class="form-group">
+			<?php echo Form::label('UploadImage', 'upload', array('class'=>'control-label')); ?>
+
+				<?php echo Form::file('upload'); ?>
 
 		</div>
 		<div class="form-group">

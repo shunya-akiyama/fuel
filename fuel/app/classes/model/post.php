@@ -1,8 +1,16 @@
 <?php
 use Orm\Model;
 
-class Model_Post extends Model
-{
+class Model_Post extends Model{
+    protected static $_has_many = array(
+        'image' => array(
+            'model_to' => 'Model_Image',
+            'key_to' => 'post_id',
+            'key_from' => 'id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        )
+    );
 	protected static $_properties = array(
 		'id',
 		'title',

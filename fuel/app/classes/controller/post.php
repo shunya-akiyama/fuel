@@ -19,6 +19,7 @@ class Controller_Post extends Controller_Template
 			Session::set_flash('error', 'Could not find post #'.$id);
 			Response::redirect('post');
 		}
+        $data['image'] = Model_Image::find($id);
 
 		$this->template->title = "Post";
 		$this->template->content = View::forge('post/view', $data);
